@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar/Booking</title>
+    <link rel="stylesheet" href="css/stylesheet.css" />
+  </head>
+  <body>
+    <div class="main-container" id="per-test">
+      <!-- Skrevet av Per Christian-->
+      <div id="nav-bar">
+        <a href="index.html" class="menu-box-design skew-box" id="header-logo">
+          <p id="logo-font">Naturglimt<br />Hotell</p>
+        </a>
+
+        <a
+          class="menu-box-design menu-link menu-link-style"
+          id="booking-button"
+          href="booking.html"
+        >
+          <div class="skew-box">Booking</div>
+        </a>
+
+        <a
+          class="menu-box-design menu-link menu-link-style"
+          id="spring-button"
+          href="spring.html"
+        >
+          <div class="skew-box">Spring</div>
+        </a>
+
+        <a
+          class="menu-box-design menu-link menu-link-style"
+          id="winter-button"
+          href="winter.html"
+        >
+          <div class="skew-box">Winter</div>
+        </a>
+
+        <a
+          class="menu-box-design menu-link menu-link-style"
+          id="autumn-button"
+          href="autumn.html"
+        >
+          <div class="skew-box">Autumn</div>
+        </a>
+
+        <a
+          class="menu-box-design menu-link menu-link-style"
+          id="summer-button"
+          href="summer.html"
+        >
+          <div class="skew-box">Summer</div>
+        </a>
+
+        <a
+          class="menu-box-design menu-link menu-link-style"
+          id="about-button"
+          href="about.html"
+        >
+          <div class="skew-box">About Naturglimt</div>
+        </a>
+      </div>
+
+      <!-- Skrevet av Shaygan -->
+      <div class="content-container" id="booking-content-container">
+        <!-- Winter -->
+        <div class="booking-content-styling info-panel" id="calendar-winter">
+          <!-- Calendar-month er div-containeren som inneholder div'men med klassen flip -->
+          <!-- desember -->
+          <div class="calendar-month" id="december">
+            <!-- Div'en med klassen "flip" skal inneholde 2 div'er, en div front og div back, disse skal kunne flippes rundt 180grader ved hjelp av hover:css -->
+            <div class="flip">
+              <!-- forside på div'en -->
+              <div class="front">
+                <img src="assets/images/December.png" alt="december image" />
+              </div>
+              <!--Bakside på div'en  -->
+              <div class="back">
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/santa.png"
+                  alt="santa img"
+                  id="santa-img"
+                />
+                <!-- for snøfugg animasjon bak calendar-divene-->
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+              </div>
+            </div>
+          </div>
+          <!-- January -->
+          <div class="calendar-month" id="january">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/January.png" alt="january image" />
+              </div>
+              <div class="back" id="january-back">
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/newyear.png"
+                  alt="newyear image"
+                  id="new-year-image"
+                />
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Februar  -->
+          <div id="february" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/February.png" alt="february image" />
+              </div>
+              <div class="back february-back">
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/valentine.png"
+                  alt="valentine img"
+                  id="february-back"
+                />
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+                <div class="snow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Spring-->
+        <div id="calendar-spring" class="booking-content-styling info-panel">
+          <!-- Mars -->
+          <div id="march" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/March.png" alt="march image" />
+              </div>
+              <div class="back" id="march-back">
+                <img
+                  src="assets/images/bee1.png"
+                  alt="bee image1 back"
+                  class="bee1"
+                />
+                <img
+                  src="assets/images/bee2.png"
+                  alt="bee image 2 back"
+                  class="bee2"
+                />
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/march-back-calendar.png"
+                  alt="march back image"
+                  id="march-back-img"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- April -->
+          <div id="april" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/April.png" alt="april image" />
+              </div>
+              <div class="back" id="april-back">
+                <img
+                  src="assets/images/bee1.png"
+                  alt="bee image1 back"
+                  class="bee1"
+                />
+                <img
+                  src="assets/images/bee2.png"
+                  alt="bee image2 back"
+                  class="bee2"
+                />
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/autumnimg1.png"
+                  alt="april image back"
+                  id="april-back-img"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- May -->
+          <div id="may" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/May.png" alt="may image" />
+              </div>
+              <div class="back" id="may-back">
+                <img
+                  src="assets/images/bee1.png"
+                  alt="bee image1 back"
+                  class="bee1"
+                />
+                <img
+                  src="assets/images/bee2.png"
+                  alt="bee image2 back"
+                  class="bee2"
+                />
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/may-back-image.jpg"
+                  alt="back may img"
+                  id="back-may-img"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Summer-->
+        <!-- Juni -->
+        <div id="calendar-summer" class="booking-content-styling info-panel">
+          <div id="june" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/June.png" alt="june image" />
+              </div>
+              <div class="back" id="june-back">
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/treejune.png"
+                  alt="back image june"
+                  id="back-june-image"
+                />
+                <div class="sun-rays"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Juli -->
+          <div id="july" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/July.png" alt="july image" />
+              </div>
+              <div class="back" id="july-back">
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/julypool.png"
+                  alt="back image july"
+                  id="back-july-image"
+                />
+                <div class="sun-rays"></div>
+              </div>
+            </div>
+          </div>
+          <!-- August -->
+          <div id="august" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/August.png" alt="august image" />
+              </div>
+              <div class="back" id="august-back">
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/augusthiking.png"
+                  alt="back image august"
+                  id="back-august-image"
+                />
+                <div class="sun-rays"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Autumn -->
+        <div id="calendar-autumn" class="booking-content-styling info-panel">
+          <!-- Septembr -->
+          <div id="september" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/September.png" alt="september image" />
+              </div>
+              <div class="back" id="september-back">
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/septemberimg.png"
+                  alt="back september img"
+                  id="back-image-september"
+                />
+                <div class="falling-leaves-container">
+                  <img
+                    src="assets/images/leaf1.png"
+                    class="leaves"
+                    alt="leaf1"
+                  />
+                  <img
+                    src="assets/images/leaf2.png"
+                    class="leaves"
+                    alt="leaf2"
+                  />
+                  <img
+                    src="assets/images/leaf3.png"
+                    class="leaves"
+                    alt="leaf3"
+                  />
+                  <img
+                    src="assets/images/leaf4.png"
+                    class="leaves"
+                    alt="leaf4"
+                  />
+                  <img
+                    src="assets/images/leaf5.png"
+                    class="leaves"
+                    alt="leaf5"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Oktober -->
+          <div id="october" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/October.png" alt="october image" />
+              </div>
+              <div class="back" id="october-back">
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/halloween-september.jpg"
+                  alt="october image"
+                  id="october-image"
+                />
+                <div class="falling-leaves-container">
+                  <img
+                    src="assets/images/leaf1.png"
+                    class="leaves"
+                    alt="leaf1"
+                  />
+                  <img
+                    src="assets/images/leaf2.png"
+                    class="leaves"
+                    alt="leaf2"
+                  />
+                  <img
+                    src="assets/images/leaf3.png"
+                    class="leaves"
+                    alt="leaf3"
+                  />
+                  <img
+                    src="assets/images/leaf4.png"
+                    class="leaves"
+                    alt="leaf4"
+                  />
+                  <img
+                    src="assets/images/leaf5.png"
+                    class="leaves"
+                    alt="leaf5"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- November -->
+          <div id="november" class="calendar-month">
+            <div class="flip">
+              <div class="front">
+                <img src="assets/images/November.png" alt="november image" />
+              </div>
+              <div class="back" id="november-back">
+                <p>Fully booked!</p>
+                <img
+                  src="assets/images/november-back-img.png"
+                  alt="november-back-image"
+                  id="back-november-image"
+                />
+                <div class="falling-leaves-container">
+                  <img
+                    src="assets/images/leaf1.png"
+                    class="leaves"
+                    alt="leaf1"
+                  />
+                  <img
+                    src="assets/images/leaf2.png"
+                    class="leaves"
+                    alt="leaf2"
+                  />
+                  <img
+                    src="assets/images/leaf3.png"
+                    class="leaves"
+                    alt="leaf3"
+                  />
+                  <img
+                    src="assets/images/leaf4.png"
+                    class="leaves"
+                    alt="leaf4"
+                  />
+                  <img
+                    src="assets/images/leaf5.png"
+                    class="leaves"
+                    alt="leaf5"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom-bar er laget av Mobineh -->
+      <!-- Bottom bar -->
+      <div id="bottom-bar-container">
+        <div id="left-bottom-bar-content">
+          <p>
+            <b>Contact: </b> <br />
+            Phone: +47 555 44 666<br />
+            E-mail: naturglimt@hotel.com <br />
+            Address: Turfjellgata 14, Hafjell 2636, Norway
+          </p>
+        </div>
+        <div id="middle-bottom-bar-content">
+          <p>
+            © 2024 Naturglimt Hotel. <br />
+            All rights reserved.
+          </p>
+        </div>
+        <div id="right-bottom-bar-content"></div>
+      </div>
+    </div>
+  </body>
+</html>

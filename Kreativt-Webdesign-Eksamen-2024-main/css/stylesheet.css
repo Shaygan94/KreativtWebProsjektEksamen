@@ -1,0 +1,916 @@
+/* Per Christian */
+
+/* Main container for nettsiden */
+
+body {
+  background-color: #f3e5e5;
+}
+
+/* Maincontainer SKAL IKKE RØRES */
+.main-container {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  border: solid #000000 5px;
+  overflow: hidden;
+}
+
+/* https://www.shecodes.io/athena/9852-how-to-add-a-custom-font-to-your-css-code
+Kilde: https://fonts.google.com/specimen/Fleur+De+Leah
+Gjorde dette også på arbeidskrav, men legger ved kilde til guiden jeg brukte da jeg lærte om @font-face*/
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  src: url("../assets/fonts/FleurDeLeah-Regular.ttf");
+  font-family: "FleurDeLeah";
+}
+
+/* Per Christian */
+#nav-bar {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  background-color: #5f1515;
+}
+
+/* Per Christian */
+.menu-box-design {
+  border-left: solid #d3d3d3 1px;
+  padding-left: 3%;
+  padding-right: 3%;
+  justify-content: center;
+  transform: skew(-14deg);
+  align-content: center;
+  text-align: center;
+  background-color: #5f1515;
+}
+
+/* Per Christian */
+.button-size {
+  height: 100px;
+  width: 5%;
+}
+
+/* Per Christian */
+#logo-font {
+  font-family: "FleurDeLeah", sans-serif;
+  text-shadow: 7px 4px 8px #000000;
+  -webkit-text-stroke: 0.4px #4d4d4d;
+  margin: 0%;
+  color: #d3d3d3;
+  font-size: 225%;
+  position: absolute;
+  top: 2px;
+  left: 30%;
+}
+
+/* Per Christian */
+.menu-link:link {
+  text-decoration: none;
+  color: #ffffff;
+  -webkit-text-stroke: 0.4px rgb(77, 77, 77);
+}
+
+/* Per Christian */
+.menu-link:visited {
+  text-decoration: none;
+  color: #ffffff;
+  -webkit-text-stroke: 0.4px rgb(77, 77, 77);
+}
+
+/* Per Christian */
+.menu-link:hover {
+  transform: scale(110%) skew(-14deg);
+  text-decoration: underline;
+  text-decoration-color: #ffffff;
+  text-decoration-thickness: 1px;
+  text-underline-offset: calc(4%);
+}
+
+/* Per Christian */
+#header-logo {
+  border-left: transparent;
+  padding-left: 16%;
+  padding-right: 16%;
+}
+
+/* Per Christian */
+#about-button {
+  padding-left: 3%;
+  width: 90px;
+}
+
+/* Per Christian */
+.bottom-panel {
+  margin-bottom: 50px;
+}
+
+/* Per Christian */
+.season-gallery-image-container {
+  height: fit-content;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* Per Christian */
+.image-fit {
+  z-index: 3;
+  position: relative;
+  height: 100px;
+  width: 100px;
+  opacity: 0.7;
+  border-radius: 10%;
+}
+
+/* Per Christian */
+.image-fit:hover {
+  animation-name: galleryview;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* Per Christian */
+@keyframes galleryview {
+  from {
+  }
+  to {
+    z-index: 4;
+    opacity: 1;
+    scale: 3;
+  }
+}
+
+/* Per Christian, Brukte brukte en oversikt på scrollbar tags fra
+https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+.content-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* --------------------Shaygan----------------------- */
+.content-container {
+  overflow: scroll; /* gjør nettsiden er scrollbar */
+  padding-left: 15%;
+  padding-right: 15%;
+  width: auto;
+  height: 589px;
+  position: relative;
+  scroll-snap-type: y mandatory; /* y = Vertikal snapping  */
+}
+
+/* container for kantene på booking nettsiden*/
+#booking-content-container {
+  background-color: #d3d3d3;
+}
+
+/* container for midten av booking nettsiden */
+/* Inspirasjon til scroll-snap: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap/Basic_concepts */
+.booking-content-styling {
+  display: grid;
+  background-color: #ffffff;
+  justify-items: center; /* sentraliserer innhold horisontalt */
+  scroll-snap-align: start; /* Snap til toppen av hver calendar-season-container når man scroller*/
+  height: 521px; /* høyde på hver seksjon*/
+}
+
+/* nth-child(1)Velger det første elementet med klassen calendar-month */
+/* Plasserer elementet i kolonne 1 og lar det strekke seg over 2 kolonner */
+/* Skyver de to neste elementene ned til neste rad */
+/* Inspirert her: https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child */
+.calendar-month:nth-child(1) {
+  grid-column: 1 / span 2;
+}
+
+.calendar-month {
+  border: 5px solid #ab9b8c;
+  width: 250px;
+  height: 250px;
+  margin: 5px; /* Avstand mellom boksene */
+  text-align: center; /* sentrerer p-tag */
+  justify-items: center;
+}
+
+.calendar-month img {
+  width: 100%;
+  height: auto;
+  padding-top: 40px;
+}
+
+/* Inspirasjon hentet her:  https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style */
+.flip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; /* sørger for at .front og .back oppfører seg som seperate 3d-flater */
+  transition: transform 2s ease-in-out; /* tid animasjonen bruker på å flippe boksen */
+}
+
+.calendar-month:hover .flip {
+  transform: rotateY(
+    180deg
+  ); /* flipper valgte kalender, og bytter til back-diven fra front-diven */
+}
+
+/* front og bakside på elementene med classen calendar-month */
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* skjuler back-div'en*/
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+  background-color: #a8967f;
+  transform: rotateY(
+    180deg
+  ); /* roterer baksiden 180 grader for å vise baksiden*/
+}
+
+/* Per christian implementerte denne for mer synlig p-tag på .back calendar-divene*/
+.back p {
+  z-index: 5;
+  position: absolute;
+  top: 30%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 30%;
+  color: #ffffff;
+  background-color: #3c3c3cbf;
+}
+
+#january-back img {
+  margin-top: -20px; /* justerer bilde på bakside av januar-back-diven for bedre plassering*/
+}
+
+#february-back img {
+  padding-top: 50px;
+}
+
+#march-back-img {
+  height: 82%;
+}
+
+#april-back-img {
+  margin-top: -40px;
+  height: 98%;
+}
+
+#may-back-img {
+  margin-top: -38px;
+}
+
+#june-back img {
+  position: relative;
+  margin-top: -20px;
+  height: 80%;
+  width: auto;
+  left: -30px;
+}
+
+#july-back img {
+  margin-top: -20px;
+}
+
+#august-back img {
+  position: relative;
+  margin-top: 20px;
+  width: 120%;
+  height: auto;
+  left: -18px;
+}
+
+#september-back img {
+  margin-top: -25px;
+  width: 100%;
+  height: auto;
+}
+
+#october-back img {
+  margin-top: -43px;
+}
+
+#november-back img {
+  margin-top: -60px;
+}
+
+/* -------------Animasjon for vinter-sesong Shaygan ------------------*/
+/* definerer snø-fnuggene*/
+.snow {
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  /* sørger for at snøfnuggene blir til sirkler */
+  border-radius: 50%;
+  /* kaller på animasjonen */
+  animation: fallingSnow 7s linear infinite;
+  position: absolute;
+  left: 0;
+  top: -40px;
+}
+
+/* Definerer animasjonen for at snøfnuggene skal falle nedover 300 px */
+@keyframes fallingSnow {
+  0% {
+    transform: translateY(1px);
+  }
+  100% {
+    transform: translateY(300px);
+  }
+}
+
+/* Styler individuelle snøfnugg for å variere posisjon, størrelse og animasjonstider */
+.snow:nth-child(1) {
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 0s;
+  animation-duration: 4s;
+}
+.snow:nth-child(2) {
+  left: 30%;
+  width: 4px;
+  height: 4px;
+  animation-delay: 0s;
+  animation-duration: 10s;
+}
+.snow:nth-child(3) {
+  left: 90%;
+  width: 10px;
+  height: 9px;
+  animation-delay: 2s;
+  animation-duration: 7s;
+}
+.snow:nth-child(4) {
+  left: 10%;
+  width: 8px;
+  height: 8px;
+  animation-delay: 1s;
+  animation-duration: 9s;
+}
+.snow:nth-child(5) {
+  left: 20%;
+  width: 8px;
+  height: 8px;
+  animation-delay: 1s;
+  animation-duration: 8s;
+}
+.snow:nth-child(6) {
+  left: 60%;
+  width: 8px;
+  height: 8px;
+  animation-delay: 1s;
+  animation-duration: 8s;
+}
+.snow:nth-child(7) {
+  left: 95%;
+  width: 11px;
+  height: 11px;
+  animation-delay: 5s;
+  animation-duration: 3s;
+}
+.snow:nth-child(8) {
+  left: 44%;
+  width: 4px;
+  height: 4px;
+  animation-delay: 1s;
+  animation-duration: 11s;
+}
+.snow:nth-child(9) {
+  left: 77%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 1s;
+  animation-duration: 10s;
+}
+.snow:nth-child(10) {
+  left: 80%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 1s;
+  animation-duration: 14s;
+}
+.snow:nth-child(11) {
+  left: 32%;
+  width: 5px;
+  height: 6px;
+  animation-delay: 1s;
+  animation-duration: 7s;
+}
+
+/* ---------------Animasjon for spring------------------- */
+.bee1 {
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 18% !important;
+  width: 18% !important; /* For å prioritere at størrelsen skal endre seg... ville ikke endre seg uten !important  */
+  /* Kaller på vår-animasjonen */
+  animation: beeMove 5s linear infinite;
+}
+
+/* Animasjon for at bien skal fly mot høyre (starter fra 0px)  */
+@keyframes beeMove {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0.4; /* Bien er fullt synlig i starten */
+  }
+  25% {
+    transform: translateX(62.5px) translateY(-20px);
+    opacity: 0.8; /* reduserer synlighet */
+  }
+  50% {
+    transform: translateX(125px) translateY(20px);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateX(187.5px) translateY(-20px);
+    opacity: 0.8; /* Nesten usynlig */
+  }
+  100% {
+    transform: translateX(250px) translateY(0);
+    opacity: 0; /* Bien forsvinner helt */
+  }
+}
+
+.bee2 {
+  position: absolute;
+  top: 55%;
+  left: 5%;
+  height: 18% !important;
+  width: 18% !important; /* for å prioritere at størrelsen skal endre seg, ville ikke uten */
+  animation: beeMoveReverse 4s linear infinite;
+}
+
+/* Animasjon for at bien skal mot venstre (starter fra 200px) */
+@keyframes beeMoveReverse {
+  0% {
+    transform: translateX(200px) translateY(0);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translateX(150px) translateY(-20px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(100px) translateY(20px);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateX(50px) translateY(-20px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(-20px) translateY(0);
+    opacity: 0.2;
+  }
+}
+
+/* -----------------animasjon for sommer--------------- */
+/* inspirasjon: https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient */
+.sun-rays {
+  position: absolute;
+  top: 20%;
+  left: 85%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #ffdf0080 50%, transparent 70%);
+  /* kaller på animasjonen */
+  animation: pulse 3s infinite;
+  transform: translate(-30%, -30%);
+}
+
+/* definerer pulserende animasjonsseffekt */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8); /* justerer størrelse mindre */
+    opacity: 0.7; /* mindre synlighet */
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2); /* størrelse større */
+    opacity: 1.2; /* mer synlighet */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8); /* tilbake til mindre størrelse */
+    opacity: 0.7; /* mindre synlighet */
+  }
+}
+
+.sun-rays2 {
+  position: absolute;
+  top: 20%;
+  left: 85%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, #ffdf0080 50%, transparent 70%);
+  /* kaller på animasjonen */
+  animation: pulse 4s infinite;
+  transform: translate(-30%, -30%);
+}
+
+/*------------------ Høst animasjon------------------ */
+.falling-leaves-container {
+  top: 10%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.leaves {
+  position: absolute;
+  animation: fallingLeaves 7s linear infinite;
+  height: 13% !important; /* for å prioritere at størrelsen skal endre seg, ville ikke uten */
+  width: 13% !important;
+}
+
+/* animasjon for at bladene skal falle og rotere */
+@keyframes fallingLeaves {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0) rotate(180deg);
+  }
+  100% {
+    transform: translateY(200px) rotate(360deg);
+  }
+}
+
+/* setter individuel posisjon og animasjonstid på bladene */
+.leaves:nth-of-type(1) {
+  left: 10%;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+.leaves:nth-of-type(2) {
+  left: 90%;
+  animation-duration: 4s;
+  animation-delay: 3s;
+}
+.leaves:nth-of-type(3) {
+  left: 50%;
+  animation-duration: 9s;
+}
+.leaves:nth-of-type(4) {
+  left: 30%;
+  animation-duration: 10s;
+}
+.leaves:nth-of-type(5) {
+  left: 70%;
+  animation-duration: 14s;
+}
+
+/* ---------------Mobineh---------------- */
+.about-images img {
+  width: 250px;
+  height: auto;
+  border-radius: 60px;
+  justify-content: center;
+  width: 260px;
+  height: 200px;
+  margin: 20px;
+}
+
+/* Kontainer til bottombaren min, med motiv, tekst og copyright-deklarasjonen, fake så klart */
+#bottom-bar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ab9b8c;
+  font-size: 12px;
+  border-top: 1px solid black;
+  position: relative;
+  width: 100%;
+  height: 80px;
+  margin-top: auto;
+  bottom: 0;
+  box-sizing: border-box;
+}
+
+#left-bottom-bar-content {
+  position: relative;
+  align-content: left;
+}
+#middle-bottom-bar-content {
+  position: relative;
+  align-content: center;
+}
+
+#right-bottom-bar-content {
+  position: relative;
+  align-content: right;
+}
+
+#bottom-bar-tree-image {
+  top: 1px;
+}
+
+/* ------------Mobineh: Dette er hover effekten som er på bildene i 'About' siden vår -------------- */
+.about-images img:hover {
+  transform: scale(1.3);
+}
+
+.season-gallery-images {
+  width: 500px;
+  height: 500px;
+}
+
+/* -------------------- Hamza Ali ---------------- */
+/* Her lager Hamza glow effekt på trærne som er nederst til venstre på bottom-baren*/
+
+#bottom-bar-tree-image-autumn {
+  height: 100px;
+  width: 100px;
+  top: 1px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #f5deb3;
+  animation: glow-tree-autumn 1.5s forwards;
+}
+
+@keyframes glow-tree-autumn {
+  0% {
+    box-shadow: 0 0 5px #f5deb3;
+  }
+  100% {
+    box-shadow: 0 0 20px #f5deb3, 0 0 30px #ffc0cb, 0 0 40px #bc6c25;
+  }
+}
+
+#bottom-bar-tree-image-spring {
+  height: 100px;
+  width: 100px;
+  top: 1px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #ffc0cb;
+  animation: glow-tree-spring 1.5s forwards;
+}
+
+@keyframes glow-tree-spring {
+  0% {
+    box-shadow: 0 0 5px #ffc0cb;
+  }
+  100% {
+    box-shadow: 0 0 20px #ffc0cb, 0 0 30px #ffc0cb, 0 0 40px #ffc0cb;
+  }
+}
+
+#bottom-bar-tree-image-winter {
+  height: 100px;
+  width: 100px;
+  top: 1px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #fffafa;
+  animation: glow-tree-winter 1.5s forwards;
+}
+
+@keyframes glow-tree-winter {
+  0% {
+    box-shadow: 0 0 5px #fffafa;
+  }
+  100% {
+    box-shadow: 0 0 20px #fffafa, 0 0 30px #fffafa, 0 0 40px #fffafa;
+  }
+}
+
+#bottom-bar-tree-image-summer {
+  height: 100px;
+  width: 100px;
+  top: 1px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #fde798;
+  animation: glow-tree-summer 1.5s forwards;
+}
+
+@keyframes glow-tree-summer {
+  0% {
+    box-shadow: 0 0 5px #fce986;
+  }
+  100% {
+    box-shadow: 0 0 20px #fce986, 0 0 30px #fce986, 0 0 40px #fce986;
+  }
+}
+
+/* Mobineh */
+
+#summer-content-styling {
+  background-color: #ffffe3;
+}
+
+#winter-content-styling {
+  background-color: #f5fefd;
+}
+
+#autumn-content-styling {
+  background-color: #ecdec6;
+}
+
+#spring-content-styling {
+  background-color: #ffeff1;
+}
+
+.info-panel {
+  padding: 4%;
+  border: 5px solid #6e2b0c;
+  border-radius: 0%;
+  box-shadow: 10px 10px 19px 0px #746445bf;
+  position: relative;
+  transition: border-radius 1s ease-in-out;
+}
+
+.info-panel:hover {
+  border-radius: 50px;
+}
+
+#summer-activities-container {
+  position: relative;
+}
+
+@keyframes softenEdges {
+  0% {
+    border-radius: 0;
+  }
+  100% {
+    border-radius: 50px;
+  }
+}
+
+/* Per Christian hjalp Naod med å implementere index siden*/
+#index-title {
+  width: auto;
+  font-size: 700%;
+  font-family: "FleurDeLeah", sans-serif;
+  text-shadow: 10px 15px 8px #000000;
+  -webkit-text-stroke: 0.4px #4d4d4d;
+  color: #d3d3d3;
+  height: 100%;
+  padding: 1px;
+  background-color: #5f1515;
+  text-align: center;
+}
+
+.index-container {
+  z-index: 2;
+  position: absolute;
+  bottom: 0%;
+  font-family: Arial, sans-serif;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 1024px;
+  background-color: #5f1515;
+  overflow: hidden;
+}
+
+/* Per Christian */
+.season-text {
+  pointer-events: none;
+  position: absolute;
+  color: #ffffff;
+  font-size: 35px;
+  top: 230px;
+  left: 50px;
+  z-index: 30;
+  -webkit-text-stroke: 0.4px rgb(0, 0, 0);
+}
+
+/* Per Christian */
+.season-card {
+  z-index: 20;
+  height: 575px;
+  width: 255px;
+  border: 5px #ffffff solid;
+  transform: rotate(14deg);
+  overflow: hidden;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 10px 10px 10px inset #000000;
+}
+
+/* Per Christian */
+.img-correction {
+  transform: rotate(-14deg) scale(1.5);
+}
+
+/* Per Christian */
+#index-winter {
+  z-index: 220;
+  right: 45px;
+  position: relative;
+}
+
+/* Per Christian */
+#index-spring {
+  z-index: 5;
+  right: 214px;
+  position: relative;
+}
+
+/* Per Christian */
+#index-summer {
+  z-index: 5;
+  right: 386px;
+  position: relative;
+}
+
+/* Per Christian */
+#index-autumn {
+  z-index: 5;
+  right: 551px;
+  bottom: 2px;
+  position: relative;
+}
+
+/* Per Christian */
+#index-winter:hover {
+  transform: scale(110%);
+}
+/* Per Christian */
+#index-spring:hover {
+  transform: scale(110%);
+}
+/* Per Christian */
+#index-summer:hover {
+  transform: scale(110%);
+}
+/* Per Christian */
+#index-autumn:hover {
+  transform: scale(110%);
+}
+
+/* ------------------Naod------------------ */
+
+/* sesong animasjon */
+
+/* Slet med å få disse til å fungere, hadde ikke nok tid */
+/* #spring:hover::before {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: url("assets/images/autumnimg1.png") repeat;
+  animation: paske 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes paske {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+#summer:hover::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: url("/assets/images/summerimg1.png") repeat;
+  animation: sol 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sol {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+#autumn:hover::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: url("/assets/images/autumnimg1.png") repeat;
+  animation: halloween 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes halloween {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+} */
